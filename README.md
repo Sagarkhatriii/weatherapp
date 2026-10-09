@@ -1,6 +1,6 @@
 # Weather Explorer
 
-A responsive weather app built with HTML, CSS, and vanilla JavaScript. Prepared with AI assistance as a learning project.
+A responsive weather app built with HTML, CSS, and vanilla JavaScript.
 
 ## Run locally
 
