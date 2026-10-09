@@ -1,34 +1,47 @@
+![Weather Explorer](./assets/banner.svg)
+
 # Weather Explorer
 
-A responsive weather app built with HTML, CSS, and vanilla JavaScript.
+A responsive weather app that turns a city search into current conditions and a five-day outlook.
 
-## Run locally
+**HTML · CSS · JavaScript · Open-Meteo API**
 
-Download the repository, open a terminal in its folder, and run:
+## Features
+
+- City search with a choice of matching locations
+- Temperature, feels-like temperature, humidity, and wind
+- Five-day high/low forecast and weather descriptions
+- Loading, no-results, and network-error feedback
+- Cancellation of outdated requests with `AbortController`
+- Responsive layout and accessible status announcements
+
+## Run
 
 ```sh
 python -m http.server 8000
 ```
 
-Then open http://localhost:8000. On Windows, use `py -m http.server 8000` if `python` is unavailable.
-
-## Features
-
-- Search cities and choose among matching locations
-- Current temperature, feels-like temperature, humidity, and wind
-- Five-day high/low forecast
-- Loading, no-results, and network-error messages
-- Cancels outdated requests
-- Responsive design and accessible status updates
+Open http://localhost:8000. On Windows, use `py -m http.server 8000` if needed. Internet access is required for weather data.
 
 ## How it works
 
-`app.js` searches the Open-Meteo geocoding API, then uses the selected coordinates to fetch weather. It creates page elements with `textContent`, avoiding HTML injection from search results. `AbortController` cancels outdated requests.
+1. Search the Open-Meteo geocoding API.
+2. Select the intended city from matching results.
+3. Fetch current conditions and five daily forecasts using its coordinates.
+4. Render text safely with `textContent`.
 
-## Data and limits
+## Project files
 
-Weather model data supplied by [Open-Meteo](https://open-meteo.com/), with [API documentation](https://open-meteo.com/en/docs) and [geocoding documentation](https://open-meteo.com/en/docs/geocoding-api). No API key is required for the non-commercial endpoint. Internet access is required. Current conditions are model estimates; this app is not an emergency-alert service. Review the provider's terms before commercial use.
+| File | Responsibility |
+| --- | --- |
+| `index.html` | Search form and page structure |
+| `app.js` | Requests, state, weather descriptions, rendering |
+| `style.css` | Layout and visual styling |
 
-## Practice ideas
+## Data attribution
 
-Add Celsius/Fahrenheit switching, saved favourite cities, or an hourly chart. Understand and adapt the code before describing it in a job interview.
+Weather model data provided by [Open-Meteo](https://open-meteo.com/). See the [forecast documentation](https://open-meteo.com/en/docs) and [geocoding documentation](https://open-meteo.com/en/docs/geocoding-api). The non-commercial endpoint requires no API key. Review the provider's terms before commercial use.
+
+## Limitations and next steps
+
+Current conditions are weather-model estimates. The app uses Celsius and km/h. Future improvements: saved favourite cities, unit switching, and an hourly forecast chart.
